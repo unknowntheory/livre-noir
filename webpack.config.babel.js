@@ -30,7 +30,8 @@ var base = {
   ],
   output: {
     path: PATHS.build,
-    filename: "index_bundle.js"
+    filename: "index_bundle.js",
+    publicPath: "/"       //changed for express proxy
   },
   module: {
     loaders: [
