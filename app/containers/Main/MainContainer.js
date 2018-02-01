@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { Nav } from 'components'
 
 class MainContainer extends Component {
   render() {
     return (
       <div>
-        <h1>MainContainer</h1>
+        <Nav />
+        {this.props.children}
       </div>
     );
   }

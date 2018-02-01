@@ -1,6 +1,6 @@
 // import React from 'react'
 import {BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom'
-import { Maincontainer, HomeContainer} from '../containers'
+import { MainContainer, HomeContainer} from '../containers'
 import React, { Component } from 'react';
 
 class HomeTest extends Component {
@@ -17,11 +17,11 @@ class HomeTest extends Component {
 
 const routes = (
   <BrowserRouter>
-    {/* <Maincontainer> */} 
+    <MainContainer> 
       <Switch>
-        <Route exact path='/' component={HomeTest} />
+      <Route exact path='/' component={HomeContainer} />
       </Switch>
-    {/* </Maincontainer> */}
+    </MainContainer>
   </BrowserRouter>  
 )
 
