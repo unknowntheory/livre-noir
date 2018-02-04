@@ -1,18 +1,4 @@
-// {
-//   "presets": [
-//     "react",
-//     "es2015",
-//     "stage-0",
-//     "node6"
-//   ],
-//   "env": {
-//     "start": {
-//       "presets": [
-//         "react-hmre"
-//       ]
-//     }
-//   }
-// }
+
 {
   "presets": [
     "env",

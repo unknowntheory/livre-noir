@@ -4,7 +4,7 @@ import { Menu } from 'semantic-ui-react'
 
 class Nav extends Component {
   state = {
-    activeItem: 'Past Books'
+    activeItem: 'home'
   }
 
   // handleClick(e, { name }) {

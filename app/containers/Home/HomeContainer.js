@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import { Container, diveder, Image } from 'semantic-ui-react'
+import { Home } from 'components'
 
 class HomeContainer extends Component {
+
+
   render() {
     return (
       <div>
-        <h1>HOME </h1>
+        {/* <Container textAlign='center'>
+          <h1>livre-noir</h1>
+          
+        </Container> */}
+        <Home />
       </div>
     );
   }
