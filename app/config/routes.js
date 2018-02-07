@@ -1,6 +1,6 @@
 // import React from 'react'
 import {BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom'
-import { MainContainer, HomeContainer} from '../containers'
+import { MainContainer, HomeContainer, UploadContainer} from '../containers'
 import React, { Component } from 'react';
 
 class HomeTest extends Component {
@@ -17,12 +17,12 @@ class HomeTest extends Component {
 
 const routes = (
   <BrowserRouter>
-    <MainContainer> 
+    <MainContainer>
       <Switch>
-      <Route exact path='/' component={HomeContainer} />
+      <Route exact path='/' component={UploadContainer} />
       </Switch>
     </MainContainer>
-  </BrowserRouter>  
+  </BrowserRouter>
 )
 
 export default routes
