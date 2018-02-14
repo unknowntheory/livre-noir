@@ -19,7 +19,7 @@ const routes = (
   <BrowserRouter>
     <MainContainer>
       <Switch>
-      <Route exact path='/' component={HomeContainer} />
+      <Route exact path='/' component={UploadContainer} />
       </Switch>
     </MainContainer>
   </BrowserRouter>
