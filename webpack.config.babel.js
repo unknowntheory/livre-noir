@@ -60,6 +60,12 @@ var developmentConfig = {
     hot: true,
     inline: true,
     progress: true,
+    proxy: {
+        '/upload': {
+            target: 'http://localhost:3000',
+            secure: false
+        }
+    }
   },
   plugins: [HTMLWebpackPluginConfig, new webpack.HotModuleReplacementPlugin()],
 }
