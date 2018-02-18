@@ -17,14 +17,13 @@ app.post('/upload', (req, res) =>{
 //title str
 //type?
   let data = req.body.file
-  axios.post('api.imgur.com/3/image',req.body,{
+  axios.post('api.imgur.com/3/image',data,{
     headers: {'Autorization': clientId},
-    imgae:data,
     name:'test'
   }).then((resp)=>{
-    console.log(resp)
+    console.log(resp,'resp')
   }).catch((err)=>{
-    console.log(err)
+    console.log(err,'err')
   })
 
 
