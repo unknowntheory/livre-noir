@@ -13,14 +13,15 @@ class ImageUpload extends Component{
           const reader = new FileReader();
           reader.onload = () => {
               const fileAsBinaryString = reader.result;
-              // axios.post('/upload',{
-              //   file: fileAsBinaryString
-              // })
+              axios.post('/upload',{
+                file: fileAsBinaryString
+              })
             console.log(reader)
           };
           reader.onabort = () => console.log('file reading was aborted');
           reader.onerror = () => console.log('file reading has failed');
           let str = reader.readAsBinaryString(file);
+          window.URL.revokeObjectURL(file.preview);
           console.log(str);
       });
 
