@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server ",
+    "sev": "nodemon sev/index.js",
     "start-server": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,13 +13,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react-hmre": "^1.1.1",
+    "body-parser": "^1.18.2",
     "create-react-class": "^15.6.2",
+    "dotenv": "^5.0.0",
     "express": "^4.16.2",
+    "mongodb": "^3.0.2",
+    "mongoose": "^5.0.5",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-dropzone": "^4.2.7",
+    "react-dropzone-component": "^3.1.2",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
