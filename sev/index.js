@@ -9,6 +9,8 @@ app.use(bodyParser.json({limit: "50mb"}))
 const clientId = process.env.API_ClientId
 const accessToken = process.env.API_AccessToken
 
+// console.log(clientId,'yooo')
+
 app.get('/', (req, res) => res.send('Hello World!'))
 app.post('/upload', (req, res) =>{
 //post to imgur API
@@ -17,8 +19,9 @@ app.post('/upload', (req, res) =>{
 //title str
 //type?
   let data = req.body.file
+
   axios.post('api.imgur.com/3/image',data,{
-    headers: {'Autorization': clientId},
+    headers: `Authorization: Client-ID ${clientId}`,
     name:'test'
   }).then((resp)=>{
     console.log(resp,'resp')
