@@ -1,6 +1,7 @@
 // import React from 'react'
 import {BrowserRouter, Route, Switch, HashRouter } from 'react-router-dom'
-import { MainContainer, HomeContainer, UploadContainer} from '../containers'
+import { MainContainer, HomeContainer, EntriesContainer, UploadContainer } from '../containers'
+
 import React, { Component } from 'react';
 
 class HomeTest extends Component {
@@ -19,7 +20,8 @@ const routes = (
   <BrowserRouter>
     <MainContainer>
       <Switch>
-      <Route exact path='/' component={UploadContainer} />
+        <Route exact path='/' component={HomeContainer} />
+        <Route path = '/entries' component={EntriesContainer} />
       </Switch>
     </MainContainer>
   </BrowserRouter>

@@ -44,5 +44,5 @@ export default Home;
   -need to replace starter pic: classic book cover
   -need to crop size to constant size global
   -set reveal to only activate on first page
-
+  - center buttons
 */
