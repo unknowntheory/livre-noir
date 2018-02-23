@@ -1,6 +1,8 @@
 import DropZone from 'react-dropzone'
 import React, {Component} from 'react'
-import axios from 'axios'
+import axios from 'axios';
+
+
 
 class ImageUpload extends Component{
   // will need to have state
@@ -10,9 +12,11 @@ class ImageUpload extends Component{
   }
   onDrop(acceptedFiles, rejectedFiles) {
       acceptedFiles.forEach(file => {
-          const reader = new FileReader();
-          reader.onload = () => {
-              const fileAsBinaryString = reader.result;
+
+          let reader = new FileReader();
+
+          reader.onloadend = (event) => {
+              let fileAsBinaryString = event.target.result
               axios.post('/upload',{
                 file: fileAsBinaryString
               })
@@ -20,9 +24,9 @@ class ImageUpload extends Component{
           };
           reader.onabort = () => console.log('file reading was aborted');
           reader.onerror = () => console.log('file reading has failed');
-          let str = reader.readAsBinaryString(file);
+          reader.readAsDataURL(file);
           window.URL.revokeObjectURL(file.preview);
-          console.log(str);
+        //  console.log(str);
       });
 
   }

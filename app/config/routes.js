@@ -21,7 +21,8 @@ const routes = (
     <MainContainer>
       <Switch>
         <Route exact path='/' component={HomeContainer} />
-        <Route path = '/entries' component={EntriesContainer} />
+        <Route path = '/entries' component={EntriesContainer} />3
+        <Route path = '/upload' component={UploadContainer}/>
       </Switch>
     </MainContainer>
   </BrowserRouter>
