@@ -13,7 +13,7 @@ class ImageUpload extends Component{
   onDrop(acceptedFiles, rejectedFiles) {
       acceptedFiles.forEach(file => {
 
-          let reader = new FileReader();
+          const reader = new FileReader();
 
           reader.onloadend = (event) => {
               let fileAsBinaryString = event.target.result
@@ -30,7 +30,10 @@ class ImageUpload extends Component{
       });
 
   }
+  onSubmit(){
 
+  }
+// on submit then I need to grab info from upload and send
 
 render(){
   return(
