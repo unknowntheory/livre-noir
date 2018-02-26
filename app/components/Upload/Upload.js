@@ -6,7 +6,12 @@ const axios = require('axios');
 class Upload extends Component {
   constructor(props){
     super(props);
-      this.state = {}
+      this.state = {
+        file:[]
+      }
+  }
+  handleFile =(image)=>{
+    this.setState({file:image})
   }
   handleChange = (e,{name, value}) => this.setState({[name] : value})
   handleSubmit = () =>{
@@ -14,7 +19,8 @@ class Upload extends Component {
     let userData = {
       name: this.state.name,
       title: this.state.title,
-      desc: this.state.desc
+      desc: this.state.desc,
+      file: this.state.file[0]
     }
     console.log(userData);
     axios.post('/upload',userData)
@@ -30,7 +36,7 @@ class Upload extends Component {
     const { name = '', title = '', desc = '' } = this.state
     return(
       <div>
-        <ImageUpload />
+        <ImageUpload handleFile={this.handleFile}/>
         <Form onSubmit={this.handleSubmit}>
 
           <Form.Input fluid label='Name' name='name' value={name} placeholder='FirstName, FullName or NickName ;)' onChange={this.handleChange} width={6}/>

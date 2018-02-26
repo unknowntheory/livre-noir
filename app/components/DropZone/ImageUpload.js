@@ -6,21 +6,24 @@ import axios from 'axios';
 
 class ImageUpload extends Component{
   // will need to have state
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = { files: [] }
+
   }
   onDrop(acceptedFiles, rejectedFiles) {
+    const { handleFile } = this.props
       acceptedFiles.forEach(file => {
 
           const reader = new FileReader();
 
           reader.onloadend = (event) => {
               let fileAsBinaryString = event.target.result
-              axios.post('/upload',{
-                file: fileAsBinaryString
-              })
-            console.log(reader)
+              handleFile(fileAsBinaryString);
+            //   axios.post('/upload',{
+            //     file: fileAsBinaryString
+            //   })
+            // console.log(reader)
           };
           reader.onabort = () => console.log('file reading was aborted');
           reader.onerror = () => console.log('file reading has failed');
