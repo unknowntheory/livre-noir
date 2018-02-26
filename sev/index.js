@@ -15,8 +15,9 @@ const accessToken = process.env.API_AccessToken
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.post('/upload', (req, res) =>{
-
-  let data = req.body.file.split(',')[1]
+  let test = req.body;
+  console.log(test,'test');
+  // let data = req.body.file.split(',')[1]
   // axios.post('https://api.imgur.com/3/image',data,{
   //   headers: {'Authorization' : `Bearer ${accessToken}`},
   //   // auth:{Bearer: accessToken},
