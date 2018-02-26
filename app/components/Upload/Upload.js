@@ -23,14 +23,13 @@ class Upload extends Component {
       file: this.state.file[0]
     }
     console.log(userData);
-    axios.post('/upload',userData)
+    axios.post('/upload',{information:userData})
     .then((response)=>{
       console.log(response)
     })
     .catch((error)=>{
       console.log(error,'err');
     })
-    console.log(this.state,'hmm');
   }
   render(){
     const { name = '', title = '', desc = '' } = this.state
@@ -38,9 +37,7 @@ class Upload extends Component {
       <div>
         <ImageUpload handleFile={this.handleFile}/>
         <Form onSubmit={this.handleSubmit}>
-
           <Form.Input fluid label='Name' name='name' value={name} placeholder='FirstName, FullName or NickName ;)' onChange={this.handleChange} width={6}/>
-
           <Form.Input fluid label='Title' name='title' value={title} placeholder='Title' onChange={this.handleChange} width={6}/>
           <Form.TextArea label='Description' name='desc' value={desc} placeholder='blurb' onChange={this.handleChange} width={6}/>
           <Form.Button>Submit</Form.Button>

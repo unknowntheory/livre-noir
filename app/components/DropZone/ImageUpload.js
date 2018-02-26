@@ -19,24 +19,15 @@ class ImageUpload extends Component{
 
           reader.onloadend = (event) => {
               let fileAsBinaryString = event.target.result
-              handleFile(fileAsBinaryString);
-            //   axios.post('/upload',{
-            //     file: fileAsBinaryString
-            //   })
-            // console.log(reader)
+              handleFile(fileAsBinaryString);// send file to parent component
           };
           reader.onabort = () => console.log('file reading was aborted');
           reader.onerror = () => console.log('file reading has failed');
           reader.readAsDataURL(file);
-          window.URL.revokeObjectURL(file.preview);
-        //  console.log(str);
+          window.URL.revokeObjectURL(file.preview);// to prevent memory leak
       });
 
   }
-  onSubmit(){
-
-  }
-// on submit then I need to grab info from upload and send
 
 render(){
   return(

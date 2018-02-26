@@ -15,26 +15,25 @@ const accessToken = process.env.API_AccessToken
 
 app.get('/', (req, res) => res.send('Hello World!'))
 app.post('/upload', (req, res) =>{
-  let test = req.body;
-  console.log(test,'test');
-  // let data = req.body.file.split(',')[1]
-  // axios.post('https://api.imgur.com/3/image',data,{
-  //   headers: {'Authorization' : `Bearer ${accessToken}`},
-  //   // auth:{Bearer: accessToken},
-  //   name:'test'
-  // }).then((resp)=>{
-  //   console.log(resp,'resp')
-  // }).catch((error)=>{
-  //   if (error.response) {
-  //     console.log(error.response.data,'data');
-  //     console.log(error.response.status,'status');
-  //     console.log(error.response.headers,'headers');
-  //   } else if (error.request) {
-  //     console.log(error.request,'request');
-  //   } else {
-  //     console.log('Error', error.message);
-  //   }
-  // })
+
+  let data = req.body.information.file.split(',')[1]
+  axios.post('https://api.imgur.com/3/image',data,{
+    headers: {'Authorization' : `Bearer ${accessToken}`},
+    name:'test'
+  }).then((resp)=>{
+    console.log(resp,'resp')
+    // save to db
+  }).catch((error)=>{
+    if (error.response) {
+      console.log(error.response.data,'data');
+      console.log(error.response.status,'status');
+      console.log(error.response.headers,'headers');
+    } else if (error.request) {
+      console.log(error.request,'request');
+    } else {
+      console.log('Error', error.message);
+    }
+  })
 })
 
 
