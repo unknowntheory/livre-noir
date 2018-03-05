@@ -19,8 +19,8 @@ class Upload extends Component {
     let userData = {
       name: this.state.name,
       title: this.state.title,
-      desc: this.state.desc,
-      file: this.state.file[0]
+      description: this.state.desc,
+      file: this.state.file
     }
     console.log(userData);
     axios.post('/upload',{information:userData})

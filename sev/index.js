@@ -17,10 +17,13 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.post('/upload', (req, res) =>{
 
   let data = req.body.information.file.split(',')[1]
+  console.log(data,'data');
   axios.post('https://api.imgur.com/3/image',data,{
     headers: {'Authorization' : `Bearer ${accessToken}`},
     name:'test'
   }).then((resp)=>{
+    let userData = req.body.information
+    userData['picture'] = resp.link
     console.log(resp,'resp')
     // save to db
   }).catch((error)=>{
@@ -47,6 +50,14 @@ app.post('/upload', (req, res) =>{
 // db.once('open', function() {
 //   // we're connected!
 //   console.log('connected');
+// });
+//
+// var uploadSchema = mongoose.Schema({
+//   name: String,
+//   title: String,
+//   description: String,
+//   picture: String,
+//   date: { type: Date, default: Date.now },
 // });
 //
 

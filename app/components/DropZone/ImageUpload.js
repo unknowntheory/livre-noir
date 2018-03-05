@@ -8,7 +8,8 @@ class ImageUpload extends Component{
   // will need to have state
   constructor(props) {
     super(props)
-    this.state = { files: [] }
+    this.state = { files: [],
+    falg:false }
 
   }
   onDrop(acceptedFiles, rejectedFiles) {
@@ -16,7 +17,10 @@ class ImageUpload extends Component{
       acceptedFiles.forEach(file => {
 
           const reader = new FileReader();
-
+          this.setState({
+            files:file,
+            flag:true
+          })
           reader.onloadend = (event) => {
               let fileAsBinaryString = event.target.result
               handleFile(fileAsBinaryString);// send file to parent component
@@ -35,6 +39,7 @@ render(){
       <div className="dropzone">
         <DropZone onDrop={this.onDrop.bind(this)}>
           <p>Drop it like it's hot</p>
+          {this.state.flag ? <img src={this.state.files.preview}/>: null}
         </DropZone>
       </div>
 
