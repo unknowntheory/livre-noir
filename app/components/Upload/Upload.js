@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
-import ImageUpload from './../DropZone/ImageUpload.js';
 const axios = require('axios');
 
 class Upload extends Component {
@@ -9,13 +8,13 @@ class Upload extends Component {
       this.state = {
         file:[]
       }
+
   }
-  handleFile =(image)=>{
-    this.setState({file:image})
-  }
+
   handleChange = (e,{name, value}) => this.setState({[name] : value})
-  handleSubmit = () =>{
-    this.setState({name:'',title:'',desc:''})
+  handleFileChange = (e) => this.setState({file:e.target.files[0]})
+  handleSubmit = (e) =>{
+    e.preventDefault();
     let userData = {
       name: this.state.name,
       title: this.state.title,
@@ -31,21 +30,19 @@ class Upload extends Component {
       console.log(error,'err');
     })
   }
+
   render(){
     const { name = '', title = '', desc = '' } = this.state
     return(
       <div>
-        <ImageUpload handleFile={this.handleFile}/>
         <Form onSubmit={this.handleSubmit}>
+          <Form.Input name='file' onChange={this.handleFileChange} type="file" width={6}/>
           <Form.Input fluid label='Name' name='name' value={name} placeholder='FirstName, FullName or NickName ;)' onChange={this.handleChange} width={6}/>
           <Form.Input fluid label='Title' name='title' value={title} placeholder='Title' onChange={this.handleChange} width={6}/>
           <Form.TextArea label='Description' name='desc' value={desc} placeholder='blurb' onChange={this.handleChange} width={6}/>
           <Form.Button>Submit</Form.Button>
         </Form>
       </div>
-
-
-
     )
   }
 }
